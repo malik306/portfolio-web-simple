@@ -1,0 +1,75 @@
+.main {
+  width: set-col-width(2);
+  margin: 0 auto;
+  padding: 3em 0;
+  @include screen-max-width(830) {
+    width: set-col-width(1.2);
+  }
+  &__align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__name {
+      p {
+        font-weight: 600;
+        font-size: 1.5em;
+      }
+    }
+    &__typing {
+      overflow: hidden;
+      height: 2.12em;
+      p {
+        //Slide required animation
+        @include animation(slide,15s,steps(3),null,infinite,null,null);
+        border: 1.5px solid wheat; 
+        bottom: 0;
+        position: relative;
+        span {
+          font-size: 1.4em;
+          font-weight: 500;
+          user-select: none;
+          position: relative;
+          &::after{
+            content: "";
+            position: absolute;
+            background: set-color(gray-5);
+            width: 1ch;
+            bottom: 0;
+            left: 0;
+            height: 0.1em;
+            border-radius: 0.1em;
+            //animation: name duration timing-function delay iteration-count direction fill-mode;
+            @include animation(typing,4s,steps(19),null,infinite,null,null);
+          }
+          &::before{
+            content: "";
+            position: absolute;
+            background: set-color(white);
+            width: 100%;
+            height: 100%;
+            //Typing required animation
+            @include animation(typing,4s,steps(19),null,infinite,null,null);
+          }
+        }
+      }
+    }
+    &__detail p {
+      font-size: 1.3em;
+      font-weight: 400;
+    }
+  }
+}
+
+@include keyframe(typing){
+  from{
+    left: 0;
+  }
+  to{
+    left: 11em;
+  }
+}
+@include keyframe(slide){
+  to{
+    bottom: 7em;
+  }
+}
