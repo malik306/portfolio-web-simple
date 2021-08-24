@@ -77,6 +77,24 @@
     display: none;
   }
 }
+.nav__bar__list--toggle {
+  padding: 0.5em 0;
+  z-index: 2;
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 5.4em;
+  left: 0;
+  right: 0;
+  background: #adb5bd;
+}
+.nav__bar__list--toggle ul {
+  flex-direction: column;
+  align-items: center;
+}
+.nav__bar__list--toggle ul li {
+  margin: 0.8em 0;
+}
 
 .wrapper {
   padding: 1em;
@@ -196,6 +214,11 @@
 .wrapper__social-icon-copy__icon li:hover svg {
   fill: black;
 }
+@media only screen and (max-width: 372px) {
+  .wrapper__social-icon-copy__copy p {
+    font-size: 0.8em;
+  }
+}
 .wrapper__social-icon-copy__copy p a {
   transition: all 1s ease;
   color: black;
@@ -219,6 +242,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
 }
 .main__align__name p {
   font-weight: 600;
@@ -229,8 +253,7 @@
   height: 2.12em;
 }
 .main__align__typing p {
-  animation: slide 15s steps(3) infinite;
-  border: 1.5px solid wheat;
+  animation: slide 12s steps(3) infinite;
   bottom: 0;
   position: relative;
 }
@@ -249,7 +272,6 @@
   left: 0;
   height: 0.1em;
   border-radius: 0.1em;
-  animation: typing 4s steps(19) infinite;
 }
 .main__align__typing p span::before {
   content: "";
@@ -257,19 +279,52 @@
   background: white;
   width: 100%;
   height: 100%;
-  animation: typing 4s steps(19) infinite;
+}
+.main__align__typing p:first-child span::after {
+  animation: typingFirst 4s steps(19) infinite;
+}
+.main__align__typing p:first-child span::before {
+  animation: typingFirst 4s steps(19) infinite;
+}
+.main__align__typing p:nth-child(2) span::after {
+  animation: typingCenter 4s steps(16) infinite;
+}
+.main__align__typing p:nth-child(2) span::before {
+  animation: typingCenter 4s steps(16) infinite;
+}
+.main__align__typing p:last-child span::after {
+  animation: typingLast 4s steps(16) infinite;
+}
+.main__align__typing p:last-child span::before {
+  animation: typingLast 4s steps(16) infinite;
 }
 .main__align__detail p {
   font-size: 1.3em;
   font-weight: 400;
 }
 
-@keyframes typing {
+@keyframes typingFirst {
   from {
     left: 0;
   }
   to {
     left: 11em;
+  }
+}
+@keyframes typingCenter {
+  from {
+    left: 0;
+  }
+  to {
+    left: 10em;
+  }
+}
+@keyframes typingLast {
+  from {
+    left: 0;
+  }
+  to {
+    left: 9.5em;
   }
 }
 @keyframes slide {

@@ -109,12 +109,17 @@
         }
       }
     }
-    &__copy p a {
-      @include transition(all, 1s, ease, null);
-      color: set-color(black);
-      &:hover {
-        color: set-color(gray-6);
-        text-decoration: underline double set-color(gray-6);
+    &__copy p {
+      @include screen-max-width(372) {
+        font-size: 0.8em;
+      }
+      a {
+        @include transition(all, 1s, ease, null);
+        color: set-color(black);
+        &:hover {
+          color: set-color(gray-6);
+          text-decoration: underline double set-color(gray-6);
+        }
       }
     }
   }
